@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="/assets/img/apple-icon.png">
+    <link rel="icon" type="image/png" href="/assets/img/logo.png">
+    <title>IROBO AI AND ROBOTICS</title>
+
+    <?php if(config('app.is_demo')): ?>
+        <meta name="keywords"
+            content="creative tim, updivision, html dashboard, laravel, argon, html css dashboard laravel, laravel argon dashboard laravel, laravel argon dashboard laravel pro, laravel argon dashboard, laravel argon dashboard pro, argon admin, laravel dashboard, laravel dashboard pro, laravel admin, web dashboard, bootstrap 5 dashboard laravel, bootstrap 5, css3 dashboard, bootstrap 5 admin laravel, argon dashboard bootstrap 5 laravel, frontend, responsive bootstrap 5 dashboard, argon dashboard, argon laravel bootstrap 5 dashboard" />
+        <meta name="description" content="Premium Admin Dashboard for Laravel with Ready to Use CRUDs" />
+        <meta itemprop="name" content="Argon Dashboard 2 PRO Laravel by Creative Tim & UPDIVISION" />
+        <meta itemprop="description" content="Premium Admin Dashboard for Laravel with Ready to Use CRUDs" />
+        <meta itemprop="image"
+            content="https://s3.amazonaws.com/creativetim_bucket/products/146/original/argon-dashboard-pro-laravel.jpg" />
+        <meta name="twitter:card" content="product" />
+        <meta name="twitter:site" content="@creativetim" />
+        <meta name="twitter:title" content="Argon Dashboard 2 PRO Laravel by Creative Tim & UPDIVISION" />
+        <meta name="twitter:description" content="Premium Admin Dashboard for Laravel with Ready to Use CRUDs" />
+        <meta name="twitter:creator" content="@creativetim" />
+        <meta name="twitter:image"
+            content="https://s3.amazonaws.com/creativetim_bucket/products/146/original/argon-dashboard-pro-laravel.jpg" />
+        <meta property="fb:app_id" content="655968634437471" />
+        <meta property="og:title" content="Argon Dashboard 2 PRO Laravel by Creative Tim & UPDIVISION" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="https://www.creative-tim.com/live/argon-dashboard-pro-laravel" />
+        <meta property="og:image"
+            content="https://s3.amazonaws.com/creativetim_bucket/products/146/original/argon-dashboard-pro-laravel.jpg" />
+        <meta property="og:description" content="Premium Admin Dashboard for Laravel with Ready to Use CRUDs" />
+    <?php endif; ?>
+    <!--     Fonts and icons     -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
+    <!-- Nucleo Icons -->
+    <link href="/assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+   
+    
+    <!-- added new font link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="/assets/css/nucleo-svg.css" rel="stylesheet" />
+    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.11.5/css/jquery.dataTables.css">
+
+    <!-- CSS Files -->
+    <link id="pagestyle" href="/assets/css/argon-dashboard.css" rel="stylesheet" />
+    <?php echo $__env->yieldPushContent('css'); ?>
+
+</head>
+
+<body class="g-sidenav-show bg-gray-100 <?php echo e($class ?? ''); ?>">
+    <?php if(auth()->guard()->guest()): ?>
+        <?php echo $__env->yieldContent('content'); ?>
+    <?php endif; ?>
+    <?php if(auth()->guard()->check()): ?>
+        <?php if(str_contains(request()->url(), 'rtl') ||
+            str_contains(request()->url(), 'pricing-page') ||
+            in_array(
+                request()->route()->getName(),
+                ['signins', 'signups', 'resets', 'locks', 'verifications', 'errors'])): ?>
+            <?php echo $__env->yieldContent('content'); ?>
+        <?php else: ?>
+            <?php if(str_contains(request()->url(), 'landing')): ?>
+                <?php echo $__env->make('components.headers.hero', ['height' => 'h-100'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php echo $__env->make('layouts.navbars.auth.sidenav', [
+                    'box' => 'box-shadow-none',
+                    'logo' => '/assets/img/logo-ct.png',
+                ], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            <?php elseif(!str_contains(request()->url(), 'vr')): ?>
+                <?php if(Route::currentRouteName() == 'profiles' || str_contains(request()->url(), 'new-product')): ?>
+                    <?php echo $__env->make('components.headers.image-hero', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php else: ?>
+                    <?php echo $__env->make('components.headers.hero', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+                <?php endif; ?>
+                <?php echo $__env->make('layouts.navbars.auth.sidenav', ['bg' => 'bg-white'], \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>;
+            <?php endif; ?>
+
+            <main class="main-content position-relative border-radius-lg">
+                <?php echo $__env->yieldContent('content'); ?>
+                <?php echo $__env->make('components.fixed-plugin', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+            </main>
+        <?php endif; ?>
+    <?php endif; ?>
+
+    <!--   Core JS Files   -->
+    <?php echo $__env->yieldPushContent('js'); ?>
+
+    <script src="/assets/js/core/popper.min.js"></script>
+    <script src="/assets/js/core/bootstrap.min.js"></script>
+    
+    <script src="/assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="/assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="/assets/js/plugins/fullcalendar.min.js"></script>
+    <script>
+        var win = navigator.platform.indexOf('Win') > -1;
+        if (win && document.querySelector('#sidenav-scrollbar')) {
+            var options = {
+                damping: '0.5'
+            }
+            Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+        }
+    </script>
+    <!-- Github buttons -->
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
+    <script src="/assets/js/argon-dashboard.js"></script>
+    
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+</body>
+</html>
+<?php /**PATH /home/szlbpmtgkfdj/public_html/resources/views/layouts/app.blade.php ENDPATH**/ ?>

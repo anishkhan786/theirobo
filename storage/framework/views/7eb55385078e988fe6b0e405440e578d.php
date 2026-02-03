@@ -1,0 +1,1 @@
+<?php /**PATH /home/szlbpmtgkfdj/public_html/resources/views/layouts/navbars/guest/topnav.blade.php ENDPATH**/ ?>

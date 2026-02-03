@@ -1,0 +1,1 @@
+<?php /**PATH C:\Users\anish\Downloads\app\resources\views/layouts/navbars/guest/topnav.blade.php ENDPATH**/ ?>

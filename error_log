@@ -1,0 +1,21 @@
+[15-Apr-2025 16:12:32 UTC] PHP Warning:  require(/home/szlbpmtgkfdj/public_html/vendor/autoload.php): Failed to open stream: No such file or directory in /home/szlbpmtgkfdj/public_html/index.php on line 34
+[15-Apr-2025 16:12:32 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/szlbpmtgkfdj/public_html/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/szlbpmtgkfdj/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/szlbpmtgkfdj/public_html/index.php on line 34
+[15-Apr-2025 16:12:34 UTC] PHP Warning:  require(/home/szlbpmtgkfdj/public_html/vendor/autoload.php): Failed to open stream: No such file or directory in /home/szlbpmtgkfdj/public_html/index.php on line 34
+[15-Apr-2025 16:12:34 UTC] PHP Fatal error:  Uncaught Error: Failed opening required '/home/szlbpmtgkfdj/public_html/vendor/autoload.php' (include_path='.:/opt/alt/php83/usr/share/pear:/opt/alt/php83/usr/share/php:/usr/share/pear:/usr/share/php') in /home/szlbpmtgkfdj/public_html/index.php:34
+Stack trace:
+#0 {main}
+  thrown in /home/szlbpmtgkfdj/public_html/index.php on line 34
+[15-Sep-2025 13:13:59 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[15-Sep-2025 13:13:59 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[15-Sep-2025 13:13:59 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[15-Sep-2025 13:13:59 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[15-Sep-2025 13:13:59 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[18-Sep-2025 04:47:42 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[18-Sep-2025 04:47:42 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[18-Nov-2025 11:18:13 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[18-Nov-2025 11:18:13 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[18-Nov-2025 11:19:13 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66
+[18-Nov-2025 11:19:13 UTC] PHP Warning:  proc_open(): Fork failed: Resource temporarily unavailable in /home/szlbpmtgkfdj/public_html/vendor/sebastian/version/src/Version.php on line 66

@@ -1,0 +1,115 @@
+@extends('layouts.app')
+
+@section('content')
+    <nav class="navbar navbar-main navbar-expand-lg  px-0 mx-4 shadow-none border-radius-xl z-index-sticky " id="navbarBlur"
+        data-scroll="false">
+        <div class="container-fluid py-1 px-3">
+            @include('layouts.navbars.auth.topnav', ['title' => 'Edit Product'])
+            <div class="sidenav-toggler sidenav-toggler-inner d-xl-block d-none ">
+                <a href="javascript:;" class="nav-link p-0">
+                    <div class="sidenav-toggler-inner">
+                        <i class="sidenav-toggler-line bg-white"></i>
+                        <i class="sidenav-toggler-line bg-white"></i>
+                        <i class="sidenav-toggler-line bg-white"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
+                <div class="ms-md-auto pe-md-3 d-flex align-items-center">
+                    <div class="input-group">
+                        <span class="input-group-text text-body"><i class="fas fa-search" aria-hidden="true"></i></span>
+                        <input type="text" class="form-control" placeholder="Type here...">
+                    </div>
+                </div>
+                <ul class="navbar-nav  justify-content-end">
+                    <li class="nav-item d-flex align-items-center">
+                        @include('auth.logout')
+                    </li>
+                    <li class="nav-item d-xl-none ps-3 d-flex align-items-center">
+                        <a href="javascript:;" class="nav-link text-white p-0" id="iconNavbarSidenav">
+                            <div class="sidenav-toggler-inner">
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                                <i class="sidenav-toggler-line bg-white"></i>
+                            </div>
+                        </a>
+                    </li>
+                     
+                    
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- End Navbar -->
+    <div class="container-fluid py-4">
+        <div class="row mb-5">
+            <div class="col-lg-9 col-12 mx-auto">
+                <div class="card card-body mt-4">
+                    <h6 class="mb-0">Edit Product</h6>
+                    <hr class="horizontal dark my-3">
+                    <form method="POST" action="{{ route('products-edit.update', $product->id) }}" enctype="multipart/form-data">
+                        @csrf
+                        <label for="name" class="form-label">Name</label>
+                        <div class="mb-3">
+                            <input type="text" class="form-control" id="name" name="name" value="{{ old('name', $product->p_name) }}">
+                            @error('name')
+                                <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                            @enderror
+                        </div>
+                        <label class="mt-4"> Description</label>
+                        <textarea name="description" rows="4" class="w-100 form-control">{{ old('description', $product->p_description) }}</textarea>
+                        @error('description')
+                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                        @enderror
+
+                        <label class="mt-4 form-label">Product Front Image</label>
+                        <div class="d-flex flex-column">
+                            <input type="file" name="attachment"  class="form-control">
+                            @error('attachment')
+                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                            @enderror
+                        </div>
+                        <br>
+                        <br>
+                        <a href="/upload/producs/{{$product->image}}" target="_blank">
+                            <img src="/upload/producs/{{$product->image}}" alt="" style="width: 100px;  height: 100px;"> 
+                       </a>
+
+                       <label class="mt-4 form-label">Gallery Images </label>
+                        <div class="d-flex flex-column">
+                            <input type="file" name="multipal_attachment[]"  class="form-control" required multiple>
+                            @error('multipal_attachment')
+                            <p class='text-danger text-xs pt-1'> {{ $message }} </p>
+                            @enderror
+                        </div>
+
+                        <br>
+                        <br>
+                        @foreach(products_images_get($product->id) as $img)
+                            <a href="/upload/producs/{{$img->image}}" target="_blank">
+                                <img src="/upload/producs/{{$img->image}}" alt="" style="width: 100px;  height: 100px;"> 
+                            </a> &nbsp; &nbsp; &nbsp; &nbsp;
+                       @endforeach
+
+                        <div class="d-flex justify-content-end mt-4">
+                            <a href="{{ route('products-management') }}" class="btn btn-light m-0">Back</a>
+                            <button type="submit" class="btn bg-gradient-primary m-0 ms-2">Save</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @include('layouts.footers.auth.footer')
+    </div>
+@endsection
+
+@push('js')
+    <script src="/assets/js/plugins/quill.min.js"></script>
+    <script>
+        if (document.getElementById('editor')) {
+            var quill = new Quill('#editor', {
+                theme: 'snow' // Specify theme in configuration
+            });
+        }
+    </script>
+@endpush
